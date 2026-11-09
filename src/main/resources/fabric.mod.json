@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "fillvanillagaps",
+	"version": "${version}",
+	"name": "Fill Vanilla Gaps",
+	"description": "The small, long-requested features vanilla still lacks: inventory sorting, right-click harvest, tree felling and vein mining, a saturation HUD, no more 'Too Expensive!', double doors, safe death drops, Infinity+Mending, rotten flesh to leather, and terracotta slabs and stairs.",
+	"authors": [
+		"Jesse Saarinen"
+	],
+	"license": "MIT",
+	"icon": "assets/fillvanillagaps/icon.png",
+	"contact": {
+		"homepage": "https://modrinth.com/mod/fillvanillagaps"
+	},
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.fillvanillagaps.FillVanillaGaps"
+		],
+		"client": [
+			"com.fillvanillagaps.client.FillVanillaGapsClient"
+		]
+	},
+	"mixins": [
+		"fillvanillagaps.mixins.json",
+		{
+			"config": "fillvanillagaps.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.20.1",
+		"minecraft": "~26.3",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}

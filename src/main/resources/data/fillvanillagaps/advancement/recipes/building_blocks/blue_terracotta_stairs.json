@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "fillvanillagaps:blue_terracotta_stairs"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_blue_terracotta": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:blue_terracotta"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_blue_terracotta"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fillvanillagaps:blue_terracotta_stairs"
+    ]
+  }
+}

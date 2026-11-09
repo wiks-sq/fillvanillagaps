@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "modifier": [
+            {
+              "type": "minecraft:set_count",
+              "condition": {
+                "type": "minecraft:match_block",
+                "blocks": "fillvanillagaps:lime_terracotta_slab",
+                "state": {
+                  "type": "double"
+                }
+              },
+              "count": 2
+            },
+            {
+              "type": "minecraft:explosion_decay"
+            }
+          ],
+          "name": "fillvanillagaps:lime_terracotta_slab"
+        }
+      ],
+      "rolls": 1
+    }
+  ],
+  "random_sequence": "fillvanillagaps:blocks/lime_terracotta_slab"
+}
