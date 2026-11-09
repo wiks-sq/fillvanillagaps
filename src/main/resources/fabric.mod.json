@@ -10,7 +10,9 @@
 	"license": "MIT",
 	"icon": "assets/fillvanillagaps/icon.png",
 	"contact": {
-		"homepage": "https://modrinth.com/mod/fillvanillagaps"
+		"homepage": "https://modrinth.com/mod/fillvanillagaps",
+		"sources": "https://github.com/wiks-sq/fillvanillagaps",
+		"issues": "https://github.com/wiks-sq/fillvanillagaps/issues"
 	},
 	"environment": "*",
 	"entrypoints": {

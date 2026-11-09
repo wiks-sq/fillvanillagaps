@@ -1,0 +1,30 @@
+name: Feature request
+description: Suggest a small, vanilla-feeling improvement.
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What gap in vanilla does this fill?
+      description: What's annoying or missing in normal play?
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: Proposed behaviour
+      description: How should it work in game? How is it turned on or triggered?
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Do other players want this?
+      description: Links to feedback-site posts, popular mods that do it, Reddit threads and so on.
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope
+      options:
+        - label: This is a small quality-of-life change, not a big content addition.
+          required: true

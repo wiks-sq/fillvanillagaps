@@ -1,0 +1,35 @@
+name: Release
+
+# Push a tag like v1.0.0+26.3 to build the jar and publish a GitHub release with it.
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: 25
+
+      - uses: gradle/actions/setup-gradle@v6
+
+      - run: ./gradlew build
+
+      - name: Extract this version's changelog
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+          awk -v v="## $version" '$0==v{f=1;next} /^## /{f=0} f' CHANGELOG.md > release-notes.md
+          test -s release-notes.md || echo "See CHANGELOG.md" > release-notes.md
+
+      - uses: softprops/action-gh-release@v3
+        with:
+          body_path: release-notes.md
+          files: build/libs/*.jar

@@ -40,8 +40,17 @@
 | Categories | Utility, Game Mechanics, Storage, Food |
 | Client / Server | Required / Required |
 | License | MIT |
-| Source | Your GitHub repo URL. Also add it as `"sources"` under `contact` in `src/main/resources/fabric.mod.json`. |
+| Source / Issues | https://github.com/wiks-sq/fillvanillagaps |
 | Icon | `src/main/resources/assets/fillvanillagaps/icon.png` |
+
+## GitHub release
+
+Push a version tag. The Release workflow builds the jar and attaches it to a GitHub release, using that version's notes from `CHANGELOG.md`:
+
+```bash
+git tag v1.0.0+26.3
+git push origin v1.0.0+26.3
+```
 
 ## Uploading a version
 

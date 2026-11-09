@@ -1,0 +1,59 @@
+name: Bug report
+description: Something doesn't work as described, or the game crashes.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for the report! Please check the existing issues first.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you do, what did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open a chest
+        2. Press R
+        3. ...
+    validations:
+      required: true
+  - type: input
+    id: mod-version
+    attributes:
+      label: Fill Vanilla Gaps version
+      placeholder: 1.0.0+26.3
+    validations:
+      required: true
+  - type: input
+    id: mc-version
+    attributes:
+      label: Minecraft, Fabric Loader and Fabric API versions
+      placeholder: 26.3 / 0.20.1 / 0.165.2+26.3
+    validations:
+      required: true
+  - type: dropdown
+    id: where
+    attributes:
+      label: Where does it happen?
+      options:
+        - Singleplayer
+        - Multiplayer (dedicated server)
+        - Both
+    validations:
+      required: true
+  - type: textarea
+    id: mods
+    attributes:
+      label: Other mods installed
+      description: List them, or say "none".
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or crash report
+      description: Paste `logs/latest.log` or the crash report, or a link to an mclo.gs paste.
+      render: text
