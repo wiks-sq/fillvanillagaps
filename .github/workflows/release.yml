@@ -1,6 +1,7 @@
 name: Release
 
 # Push a tag like v1.0.0+26.3 to build the jar and publish a GitHub release with it.
+# Tags with a pre-release part (v1.1.0-beta.1+26.4-snapshot-7) become GitHub pre-releases.
 on:
   push:
     tags: ["v*"]
@@ -29,7 +30,14 @@ jobs:
           awk -v v="## $version" '$0==v{f=1;next} /^## /{f=0} f' CHANGELOG.md > release-notes.md
           test -s release-notes.md || echo "See CHANGELOG.md" > release-notes.md
 
+      # If the tag was moved to a new commit, replace the release built from the old one.
+      - name: Remove an earlier release for this tag
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release delete "$GITHUB_REF_NAME" --repo "$GITHUB_REPOSITORY" --yes || true
+
       - uses: softprops/action-gh-release@v3
         with:
           body_path: release-notes.md
           files: build/libs/*.jar
+          prerelease: ${{ contains(github.ref_name, '-') }}

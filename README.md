@@ -42,6 +42,9 @@ Tree felling and vein mining cost durability and hunger for every block, like no
 2. Download **[Fabric API](https://modrinth.com/mod/fabric-api)** and Fill Vanilla Gaps from [Releases](https://github.com/wiks-sq/fillvanillagaps/releases) or [Modrinth](https://modrinth.com/mod/fillvanillagaps).
 3. Put both jars in your `.minecraft/mods` folder and start the Fabric profile.
 
+> [!NOTE]
+> A beta for the **26.4 snapshots** lives on the [`26.4` branch](https://github.com/wiks-sq/fillvanillagaps/tree/26.4) and is published as a GitHub pre-release. It targets one exact snapshot, so use the 26.3 release for normal play.
+
 > [!IMPORTANT]
 > The mod adds blocks, so in multiplayer it must be installed on **the server and every client**.
 

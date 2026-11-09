@@ -37,13 +37,13 @@ public final class SortButtons {
 		if (containerSlot != null) {
 			Button button = makeButton(containerScreen, containerSlot, tooltip);
 			Screens.getWidgets(screen).add(button);
-			ScreenEvents.beforeExtract(screen).register((s, graphics, mouseX, mouseY, delta) ->
+			ScreenEvents.beforeExtract(screen).register((s, graphics) ->
 				place(button, access, access.fillvanillagaps$getTitleLabelY()));
 		}
 		if (playerSlot != null) {
 			Button button = makeButton(containerScreen, playerSlot, tooltip);
 			Screens.getWidgets(screen).add(button);
-			ScreenEvents.beforeExtract(screen).register((s, graphics, mouseX, mouseY, delta) ->
+			ScreenEvents.beforeExtract(screen).register((s, graphics) ->
 				place(button, access, access.fillvanillagaps$getInventoryLabelY()));
 		}
 	}

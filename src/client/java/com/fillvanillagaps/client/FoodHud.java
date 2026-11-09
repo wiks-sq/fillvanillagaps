@@ -2,7 +2,6 @@ package com.fillvanillagaps.client;
 
 import com.fillvanillagaps.FvgConfig;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.core.component.DataComponents;
@@ -29,7 +28,7 @@ public final class FoodHud {
 	private FoodHud() {
 	}
 
-	public static void extract(GuiGraphicsExtractor graphics, DeltaTracker deltaTracker) {
+	public static void extract(GuiGraphicsExtractor graphics) {
 		Minecraft minecraft = Minecraft.getInstance();
 		Player player = minecraft.player;
 		if (!FvgConfig.get().foodSaturationHud || player == null || minecraft.gui.hud.isHidden()
@@ -45,12 +44,12 @@ public final class FoodHud {
 		FoodProperties held = heldFood(player);
 		if (held != null && food.getFoodLevel() < 20) {
 			int restored = Math.min(20, food.getFoodLevel() + held.nutrition());
-			float pulse = 0.5F + 0.5F * Mth.sin((player.tickCount + deltaTracker.getGameTimeDeltaPartialTick(false)) * 0.25F);
+			float pulse = 0.5F + 0.5F * Mth.sin((player.tickCount + Minecraft.getInstance().getDeltaTracker().getGameTimeDeltaPartialTick(false)) * 0.25F);
 			int color = ((int) (0x30 + 0x50 * pulse) << 24) | 0xFFFFFF;
 			for (int i = 0; i < 10; i++) {
 				int x = xRight - i * 8 - 9;
-				int before = Mth.clamp(food.getFoodLevel() - i * 2, 0, 2);
-				int after = Mth.clamp(restored - i * 2, 0, 2);
+				int before = Math.clamp(food.getFoodLevel() - i * 2, 0, 2);
+				int after = Math.clamp(restored - i * 2, 0, 2);
 				if (after > before) {
 					graphics.fill(x + 1, y + 1, x + 8, y + 8, color);
 				}
@@ -59,7 +58,7 @@ public final class FoodHud {
 
 		float saturation = food.getSaturationLevel();
 		for (int i = 0; i < 10; i++) {
-			float amount = Mth.clamp(saturation - i * 2, 0.0F, 2.0F) / 2.0F;
+			float amount = Math.clamp(saturation - i * 2, 0.0F, 2.0F) / 2.0F;
 			if (amount <= 0.0F) {
 				break;
 			}

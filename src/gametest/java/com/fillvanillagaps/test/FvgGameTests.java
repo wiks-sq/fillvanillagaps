@@ -82,7 +82,7 @@ public class FvgGameTests {
 		Block slab = BuiltInRegistries.BLOCK.getValue(FillVanillaGaps.id("red_terracotta_slab"));
 		BlockPos pos = new BlockPos(1, 1, 1);
 		helper.setBlock(pos, slab.defaultBlockState().setValue(SlabBlock.TYPE, SlabType.DOUBLE));
-		List<ItemStack> drops = Block.getDrops(helper.getBlockState(pos), helper.getLevel(), helper.absolutePos(pos), null);
+		List<ItemStack> drops = Block.getDrops(helper.getBlockState(pos), helper.getLevel(), helper.absolutePos(pos), null, null, ItemStack.EMPTY);
 		check(helper, drops.size() == 1 && drops.getFirst().getCount() == 2, "double slab drops two slabs");
 		helper.succeed();
 	}
